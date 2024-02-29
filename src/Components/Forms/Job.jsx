@@ -3,7 +3,9 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } 
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
-import ApplyButton from './ApplyButton';
+
+const API_URL="https://backend-api-u4m5.onrender.com"
+
 
 const Job = () => {
   const initialFormData = {
@@ -37,7 +39,7 @@ const Job = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:4040/others/jobquery', formData);
+      const response = await axios.post(`${API_URL}/others/jobquery`, formData);
       console.log('Form submitted:', response.data);
       toast.success('Form submitted successfully');
       handleClose(); 

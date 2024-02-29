@@ -3,7 +3,10 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } 
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
-import ApplyButton from './ApplyButton';
+
+
+const API_URL="https://backend-api-u4m5.onrender.com"
+
 
 const Savings = () => {
   const initialFormData = {
@@ -34,7 +37,7 @@ const Savings = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:4040/services/savinginvestment', formData);
+      const response = await axios.post(`${API_URL}/services/savinginvestment`, formData);
       // Handle successful submission
       console.log('Form submitted:', response.data);
       toast.success('Form submitted successfully');

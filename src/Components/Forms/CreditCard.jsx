@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
 
+const API_URL="https://backend-api-u4m5.onrender.com"
+
 const CreditCard = () => {
   const initialFormData = {
     name: '',
@@ -34,11 +36,10 @@ const CreditCard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4040/services/creditcard', formData);
-      // Handle successful submission
+      const response = await axios.post(`${API_URL}/services/creditcard`, formData);
       console.log('Form submitted:', response.data);
       toast.success('Form submitted successfully');
-      handleClose(); // Close dialog on successful submission
+      handleClose();
       setFormData(initialFormData); // Reset form fields
     } catch (error) {
       // Handle error
