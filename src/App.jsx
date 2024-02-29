@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './Pages/Home/Home'
 import {Routes,Route ,BrowserRouter as Router} from 'react-router-dom'
 import AgentList from '../agent'
+
 const App = () => {
   return (
     <div>

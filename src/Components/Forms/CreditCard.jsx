@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import './Forms.css'
+import './Forms.css';
 
-import ApplyButton from './ApplyButton';
 const CreditCard = () => {
-  const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
     mobile: '',
     alternate_number: '',
-    amount: '',
     place: '',
     district: ''
-  });
+  };
+
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleClose = () => {
     setOpen(false);
@@ -31,40 +31,40 @@ const CreditCard = () => {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-
-      if (!formData.name || !formData.mobile || !formData.amount|| !formData.alternate_number || !formData.district || !formData.place) {
-        toast.error("Please fill out all required fields");
-        return;
-      }
       const response = await axios.post('http://localhost:4040/services/creditcard', formData);
-
-      toast.success('Your application submitted successfully');
-
-      handleClose();
+      // Handle successful submission
+      console.log('Form submitted:', response.data);
+      toast.success('Form submitted successfully');
+      handleClose(); // Close dialog on successful submission
+      setFormData(initialFormData); // Reset form fields
     } catch (error) {
-      toast.error('Failed to submit your application');
+      // Handle error
+      console.error('Error submitting form:', error);
+      toast.error('Error submitting form');
     }
   };
 
   return (
     <div>
-<ApplyButton onClick={handleOpen} />
+      <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for CreditCard</DialogTitle>
         <DialogContent>
-          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange}  style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="Amount" name="amount" type="number" value={formData.amount} onChange={handleChange} style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}}/>
+          <form onSubmit={handleSubmit}>
+            <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button type='submit'>Submit</Button>
+            </DialogActions>
+          </form>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit}>Submit</Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

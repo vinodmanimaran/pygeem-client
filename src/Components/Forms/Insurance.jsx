@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Select, MenuItem } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, MenuItem } from '@mui/material';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
 import ApplyButton from './ApplyButton';
 
-const Realestate = () => {
+const Insurance = () => {
   const initialFormData = {
     name: '',
     mobile: '',
     alternate_number: '',
-    purchaseOrSale: '',
-    agreeOrCommercial: '',
     place: '',
-    district: ''
+    district: '',
+    insurance_type: ''
   };
 
   const [open, setOpen] = useState(false);
@@ -36,7 +35,7 @@ const Realestate = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:4040/services/realestate', formData);
+      const response = await axios.post('http://localhost:4040/services/insurance', formData);
       // Handle successful submission
       console.log('Form submitted:', response.data);
       toast.success('Form submitted successfully');
@@ -53,31 +52,28 @@ const Realestate = () => {
     <div>
       <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Apply for Real Estate</DialogTitle>
+        <DialogTitle>Apply for Insurance</DialogTitle>
         <DialogContent>
-          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange}  style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}}/>
-          {/* Replace TextField with Select */}
+          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{ marginBottom: "10px" }} />
           <TextField
             fullWidth
             select
-            label="PurchaseorSale"
-            name="purchaseOrSale"
-            value={formData.purchaseOrSale}
+            label="Insurance Type"
+            name="insurance_type"
+            value={formData.insurance_type}
             onChange={handleChange}
             style={{ marginBottom: "10px" }}
           >
-            {['Purchase','Sale','Others'].map((option) => (
+            {['Health Insurance', 'Life Insurance', 'Global Insurance', 'Others'].map((option) => (
               <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>
             ))}
           </TextField>
-          {/* End of Select */}
-          <TextField fullWidth label="Agree or Commercial" name="agreeOrCommercial" value={formData.agreeOrCommercial} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange}  style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
@@ -88,4 +84,4 @@ const Realestate = () => {
   );
 };
 
-export default Realestate;
+export default Insurance;

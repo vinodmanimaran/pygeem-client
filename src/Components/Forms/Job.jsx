@@ -5,13 +5,16 @@ import axios from 'axios';
 import './Forms.css';
 import ApplyButton from './ApplyButton';
 
-const Savings = () => {
+const Job = () => {
   const initialFormData = {
     name: '',
-    mobile: '',
+    mobile_number: '',
     alternate_number: '',
-    place: '',
-    district: ''
+    Qualification:'',
+    Experience:'',
+    Country:'',
+    Place: '',
+    District: ''
   };
 
   const [open, setOpen] = useState(false);
@@ -34,12 +37,11 @@ const Savings = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:4040/services/savinginvestment', formData);
-      // Handle successful submission
+      const response = await axios.post('http://localhost:4040/others/jobquery', formData);
       console.log('Form submitted:', response.data);
       toast.success('Form submitted successfully');
-      handleClose(); // Close dialog on successful submission
-      setFormData(initialFormData); // Reset form fields
+      handleClose(); 
+      setFormData(initialFormData); 
     } catch (error) {
       // Handle error
       console.error('Error submitting form:', error);
@@ -51,13 +53,16 @@ const Savings = () => {
     <div>
       <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Apply for Micro Savings & Investments</DialogTitle>
+        <DialogTitle>Job Query</DialogTitle>
         <DialogContent>
           <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Mobile" name="mobile_number" value={formData.mobile_number} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Qualification" name="Qualification" value={formData.Qualification} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Place" name="Place" value={formData.Place} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Experience" name="Experience" value={formData.Experience} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="District" name="District" value={formData.District} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Country" name="Country" value={formData.Country} onChange={handleChange} style={{marginBottom:"10px"}} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
@@ -68,4 +73,4 @@ const Savings = () => {
   );
 };
 
-export default Savings;
+export default Job;
