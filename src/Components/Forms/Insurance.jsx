@@ -3,12 +3,14 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, M
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
+import {useParams} from 'react-router-dom'
+ 
 
-
-const API_URL="https://backend-api-u4m5.onrender.com"
+const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
 
 
 const Insurance = () => {
+  const { referralId } = useParams();
   const initialFormData = {
     name: '',
     mobile: '',
@@ -38,14 +40,11 @@ const Insurance = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`${API_URL}/services/insurance`, formData);
-      // Handle successful submission
-      console.log('Form submitted:', response.data);
+      const response = await axios.post(`${API_URL}/services/insurance/${referralId}`, formData);
       toast.success('Form submitted successfully');
-      handleClose(); // Close dialog on successful submission
-      setFormData(initialFormData); // Reset form fields
+      handleClose(); 
+      setFormData(initialFormData); 
     } catch (error) {
-      // Handle error
       console.error('Error submitting form:', error);
       toast.error('Error submitting form');
     }

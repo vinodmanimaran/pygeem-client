@@ -7,7 +7,7 @@ const App = () => {
     <div>
 <Router>
   <Routes>
-  <Route path="/referral/:referralToken" element={<Home/>} />
+  <Route path="/referral/:referralId" element={<Home/>} />
 
   </Routes>
 </Router>

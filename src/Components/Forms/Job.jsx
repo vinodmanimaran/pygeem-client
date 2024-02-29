@@ -3,11 +3,13 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } 
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
+import { useParams } from 'react-router-dom';
 
-const API_URL="https://backend-api-u4m5.onrender.com"
+const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
 
 
 const Job = () => {
+  const {referralId}=useParams()
   const initialFormData = {
     name: '',
     mobile_number: '',
@@ -39,13 +41,11 @@ const Job = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(`${API_URL}/others/jobquery`, formData);
-      console.log('Form submitted:', response.data);
+      const response = await axios.post(`${API_URL}/others/jobquery/${referralId}`, formData);
       toast.success('Form submitted successfully');
       handleClose(); 
       setFormData(initialFormData); 
     } catch (error) {
-      // Handle error
       console.error('Error submitting form:', error);
       toast.error('Error submitting form');
     }
