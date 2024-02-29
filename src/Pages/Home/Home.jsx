@@ -1,17 +1,11 @@
 import React,{useEffect} from 'react'
-import Footer from '../../Components/Footer/Footer.jsx'
 import './Home.css'
-import CTA from '../../assets/cta-banner.jpg'
-import Navbar from '../../Components/Navbar/Navbar.jsx'
-import JobQuery from '../../Components/JobQuery/JobQuery.jsx'
 import Loan from '../../Components/Forms/Loan.jsx'
 import CreditCard from '../../Components/Forms/CreditCard.jsx'
 import Realestate from '../../Components/Forms/RealEstate.jsx'
 import Savings from '../../Components/Forms/Savings.jsx'
 import VehicleInsurance from '../../Components/Forms/Vechicle.jsx'
-import OtherInsurance from '../../Components/Forms/OtherInsurances.jsx'
 import { useParams } from 'react-router-dom';
-import { Button } from '@mui/material'
 import Insurance from '../../Components/Forms/Insurance.jsx'
 import Job from '../../Components/Forms/Job.jsx'
 import { AppBar, Toolbar, Typography } from '@mui/material';
