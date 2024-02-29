@@ -55,12 +55,12 @@ const VehicleInsurance = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for Vehicle Insurance</DialogTitle>
         <DialogContent>
-          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} />
-          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} />
-          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} />
-          <TextField fullWidth label="Vehicle" name="vehicle" value={formData.vehicle} onChange={handleChange} />
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} />
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} />
+          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange}  style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="Vehicle" name="vehicle" value={formData.vehicle} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
