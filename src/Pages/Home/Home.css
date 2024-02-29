@@ -1,0 +1,140 @@
+
+.cta-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cta-banner img {
+    position: absolute;
+    top: -20;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .cta-banner button {
+    z-index: 1;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #ff5a5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-banner button:hover {
+    background-color: #ff767c;
+  }
+
+
+  .cta-content {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+
+  .cta-title-service {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50; /* Dark blue color */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  .cta-line-service {
+    font-size: 20px;
+    color: #555; /* Dark grey color */
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .our-services{
+    padding: 1rem;
+   display: grid;
+   grid-template-columns: 1fr 1fr ; 
+   gap: 20px;
+  }
+  
+
+  .service-title {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-title h2 {
+    font-size: 24px;
+    color: #333;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  
+
+
+  .service-h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 10px;
+    margin: 2rem;
+    text-align: center;
+    transform: translateX(-100px);
+  }
+  
+
+  @media (max-width: 768px){
+    .our-services{
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .service-h2{
+      text-align: center;
+      transform: translateX(10px);
+
+    }
+  }
