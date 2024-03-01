@@ -52,7 +52,7 @@ const Savings = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
+      <h3 onClick={handleOpen} className='click-text'> MicroSavings & Investments</h3>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for Micro Savings & Investments</DialogTitle>
         <DialogContent>

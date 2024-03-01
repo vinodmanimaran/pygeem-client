@@ -53,7 +53,7 @@ const Loan = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
+      <h3 onClick={handleOpen} className='click-text'>Loans</h3>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for Loan</DialogTitle>
         <DialogContent>

@@ -1,75 +1,17 @@
-
-.cta-banner {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cta-banner img {
-    position: absolute;
-    top: -20;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-
-  .cta-banner button {
-    z-index: 1;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: #ff5a5f;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .cta-banner button:hover {
-    background-color: #ff767c;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 
-  .cta-content {
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-    color: #fff;
-  }
-
-  .cta-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-
-  .cta-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-
-
-  .cta-title-service {
-    font-size: 32px;
+  .click-text {
+    font-size: 18px;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 700;
-    color: #2c3e50; /* Dark blue color */
+    color: #2c3e50; 
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     animation: fadeInUp 0.8s ease forwards;
   }
   
-  .cta-line-service {
-    font-size: 20px;
-    color: #555; /* Dark grey color */
-    margin-bottom: 30px;
-    animation: fadeInUp 1s ease forwards;
-  }
   
   @keyframes fadeInUp {
     from {
@@ -99,43 +41,19 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .service-title h2 {
-    font-size: 24px;
-    color: #333;
-    text-transform: uppercase;
-    margin: 0;
-    padding-bottom: 10px;
-  }
-  
 
-
-  .service-h2 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    margin: 0;
-    padding-bottom: 10px;
-    margin: 2rem;
-    text-align: center;
-    transform: translateX(-200px);
-  }
-  
-
-  @media (max-width: 768px){
-   
-.cta-title-service{
-  font-size: 15px;
+.service-list{
+  text-align: center;
 }
-   .our-services{
-    border: 1px solid blue;
-   }
-    .service-h2{
-      text-align: center;
-      transform: translateX(10px);
+.service_logo img {
+  max-width: 15%;
+  margin-bottom: 10px;
+  filter: grayscale(20%);
+  cursor: pointer;
+  transition: all 0.3s ease; 
+ 
+}
 
-    }
-  }
 
 
   .logo {
@@ -149,3 +67,52 @@
     font-weight: bold; 
     text-transform: uppercase; 
 }
+
+
+.home-container{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.service-h2 {
+  font-family: "Josefin Sans", sans-serif;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: #f0f0f0; 
+  color: #ff6f61;
+  text-align: center; 
+}
+
+
+.service-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  
+  grid-auto-flow: row;
+}
+
+
+
+
+@media (max-width: 768px){
+   
+  .cta-title-service{
+    font-size: 15px;
+  }
+  
+  .home-page{
+    overflow: hidden;
+  }
+      .service-h2{
+        text-align: center;
+        transform: translateX(10px);
+  
+      }
+
+      .service-list{
+        margin: 1rem;
+        max-width: 400px;
+      }
+    }

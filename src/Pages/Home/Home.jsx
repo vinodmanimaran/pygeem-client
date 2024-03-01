@@ -9,7 +9,13 @@ import { useParams } from 'react-router-dom';
 import Insurance from '../../Components/Forms/Insurance.jsx'
 import Job from '../../Components/Forms/Job.jsx'
 import { AppBar, Toolbar, Typography } from '@mui/material';
-
+import card from '../../assets/card.svg'
+import insurance from '../../assets/insurance.svg'
+import Vehicle from '../../assets/vinsurance.svg'
+import loan from '../../assets/loan.svg'
+import land from '../../assets/land.svg'
+import invest from '../../assets/invest.svg'
+import job from '../../assets/job.svg'
 
 const Home = () => {
   const { referralToken } = useParams();
@@ -22,7 +28,9 @@ const Home = () => {
 
   return (
     <>
- <AppBar position="static">
+
+    <div className="home-page">
+    <AppBar position="static">
       <Toolbar>
         <div className="logo">
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
@@ -35,98 +43,112 @@ const Home = () => {
  
 
 
-<div className="container">
-<h2 className='service-h2'>Services we provide</h2>
- <div className="our-servics">
-  <div className="credit-card" style={{marginBottom:"10px"}}>
-    <div className="row">
-      <div className="col">
-      <h2 className="cta-title-service">Credit-Card</h2>
+<div className=" home-container">
+  <div className="row">
+    <div className="col">
 
-      </div>
+    <h2 className='service-h2'>Services we provide here for you</h2>
 
-      <div className="col">
-      <CreditCard/>
-
-      </div>
     </div>
   </div>
+
+  <div className="row">
+    <div className="col-xxl col-xl col-lg col-md">
+    <div className="creditcard" style={{marginBottom:"10px"}}>
+    <div className="row">
+      <div className="col service-list">
+      <div className="service_logo">
+        <img src={card} alt="" className='logo'/>
+        </div>
+        <CreditCard/>
+
+      </div>
+
+    </div>
+  </div>
+  
   <div className="insurance" style={{marginBottom:"10px"}}>
     <div className="row">
-      <div className="col">
-      <h2 className="cta-title-service">Insurance</h2>
-
-      </div>
-
-      <div className="col">
+      <div className="col service-list">
+      <div className="service_logo">
+        <img src={insurance} alt="" className='logo'/>
+        </div>
         <Insurance/>
+
       </div>
+
+     
     </div>
   </div>
   <div className="vehicle-insurances" style={{marginBottom:"10px"}}>
   <div className="row">
-      <div className="col">
-      <h2 className="cta-title-service"> Vechicle Insurance</h2>
+      <div className="col service-list">
+      <div className="service_logo">
+        <img src={Vehicle} alt="" className='logo'/>
+        </div>
+        <VehicleInsurance/>
 
       </div>
 
-      <div className="col">
-      <VehicleInsurance/>
-
-      </div>
+     
     </div>
   </div>
   <div className="loans" style={{marginBottom:"10px"}}>
   <div className="row">
-      <div className="col">
-      <h2 className="cta-title-service">Loans</h2>
+      <div className="col  service-list">
+      <div className="service_logo">
+        <img src={loan} alt="" className='logo'/>
+        </div>
+        <Loan/>
 
       </div>
 
-      <div className="col">
-<Loan/>
-      </div>
     </div>
   </div>
   <div className="real estate" style={{marginBottom:"10px"}}>
   <div className="row">
-      <div className="col">
-      <h2 className="cta-title-service">Real Estate</h2>
+      <div className="col service-list">
+      <div className="service_logo">
+        <img src={land} alt="" className='logo'/>
+        </div>
+        <Realestate/>
 
       </div>
 
-      <div className="col">
-<Realestate/>
-      </div>
+      
     </div>
   </div>
 
 
 <div className="savings" style={{marginBottom:"10px"}}>
 <div className="row">
-  <div className="col">
-      <h2 className="cta-title-service">Micro Savings & Investments</h2>
-
-      </div>
-      <div className="col">
+  <div className="col service-list">
+  <div className="service_logo">
+        <img src={invest} alt="" className='logo'/>
+        </div>
         <Savings/>
+
       </div>
   </div>
 </div>
  <div className="job-queries"style={{marginBottom:"10px"}} >
   <div className="row">
-  <div className="col">
-      <h2 className="cta-title-service">For Job Related Queries</h2>
-
-      </div>
-      <div className="col">
+  <div className="col service-list">
+  <div className="service_logo">
+        <img src={job} alt="" className='logo'/>
+        </div>
         <Job/>
+
       </div>
   </div>
  </div>
 </div>
+  </div>
+ 
 
 </div>
+    </div>
+ 
    
 
 

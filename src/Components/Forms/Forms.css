@@ -1,0 +1,20 @@
+.click-text{
+    transform: translateX(37%);
+}
+
+
+.click-text {
+    color: rgb(61, 124, 201);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .click-text:hover {
+    color: rgb(41, 94, 171); 
+  }
+  
+  .click-text:active {
+    color: rgb(41, 94, 171);
+  }
+  
+  

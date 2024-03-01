@@ -50,7 +50,7 @@ const CreditCard = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
+      <h3 onClick={handleOpen} className='click-text'>Credit card</h3>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for CreditCard</DialogTitle>
         <DialogContent>

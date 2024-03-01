@@ -53,7 +53,7 @@ const Job = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen} variant='contained'>Apply Here</Button>
+      <h3 onClick={handleOpen} className='click-text'>Job Query</h3>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Job Query</DialogTitle>
         <DialogContent>
