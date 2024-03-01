@@ -16,7 +16,8 @@ const Savings = () => {
     mobile: '',
     alternate_number: '',
     place: '',
-    district: ''
+    district: '',
+    amount:''
   };
 
   const [open, setOpen] = useState(false);
@@ -60,6 +61,8 @@ const Savings = () => {
           <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Budget" name="amount" value={formData.amount} onChange={handleChange} style={{marginBottom:"10px"}} />
+
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

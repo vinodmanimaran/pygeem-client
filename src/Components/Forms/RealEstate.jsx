@@ -18,7 +18,8 @@ const Realestate = () => {
     purchaseOrSale: '',
     agreeOrCommercial: '',
     place: '',
-    district: ''
+    district: '',
+    amount:''
   };
 
   const [open, setOpen] = useState(false);
@@ -60,11 +61,10 @@ const Realestate = () => {
           <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange}  style={{marginBottom:"10px"}}/>
           <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}}/>
-          {/* Replace TextField with Select */}
           <TextField
             fullWidth
             select
-            label="PurchaseorSale"
+            label="Purchase or Sale"
             name="purchaseOrSale"
             value={formData.purchaseOrSale}
             onChange={handleChange}
@@ -76,8 +76,9 @@ const Realestate = () => {
               </MenuItem>
             ))}
           </TextField>
-          {/* End of Select */}
           <TextField fullWidth label="Agree or Commercial" name="agreeOrCommercial" value={formData.agreeOrCommercial} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Budget" name="amoount" value={formData.amount} onChange={handleChange} style={{marginBottom:"10px"}} />
+
           <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange}  style={{marginBottom:"10px"}}/>
           <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}}/>
         </DialogContent>
