@@ -7,16 +7,16 @@ import { useParams } from 'react-router-dom';
 
 const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
 
-
 const Job = () => {
-  const {referralId}=useParams()
+  
+  const { referralId } = useParams();
   const initialFormData = {
     name: '',
-    mobile_number: '',
+    mobile: '',
     alternate_number: '',
-    Qualification:'',
-    Experience:'',
-    Country:'',
+    Qualification: '',
+    Experience: '',
+    Country: '',
     Place: '',
     District: ''
   };
@@ -42,6 +42,7 @@ const Job = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(`${API_URL}/others/jobquery/${referralId}`, formData);
+      console.log(response);
       toast.success('Form submitted successfully');
       handleClose(); 
       setFormData(initialFormData); 
@@ -58,7 +59,7 @@ const Job = () => {
         <DialogTitle>Job Query</DialogTitle>
         <DialogContent>
           <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Mobile" name="mobile_number" value={formData.mobile_number} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Mobile" name="mobile"  value={formData.mobile} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Qualification" name="Qualification" value={formData.Qualification} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Place" name="Place" value={formData.Place} onChange={handleChange} style={{marginBottom:"10px"}} />

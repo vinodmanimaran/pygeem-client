@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, MenuItem } from '@mui/material';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import './Forms.css'
-import {useParams} from 'react-router-dom'
-
+import './Forms.css';
+import { useParams } from 'react-router-dom';
 
 const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
-
 
 const VehicleInsurance = () => {
   const { referralId } = useParams();
@@ -16,6 +14,7 @@ const VehicleInsurance = () => {
     mobile: "",
     alternate_number: "",
     vehicle: "",
+    OtherVehicle: "", // Added OtherVehicle field
     place: "",
     district: ""
   };
@@ -32,9 +31,10 @@ const VehicleInsurance = () => {
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 
@@ -42,10 +42,9 @@ const VehicleInsurance = () => {
     try {
       const response = await axios.post(`${API_URL}/services/vechicleinsurance/${referralId}`, formData);
       toast.success('Form submitted successfully');
-      handleClose(); 
-      setFormData(initialFormData); 
+      handleClose();
+      setFormData(initialFormData);
     } catch (error) {
-      // Handle error
       console.error('Error submitting form:', error);
       toast.error('Error submitting form');
     }
@@ -57,9 +56,9 @@ const VehicleInsurance = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for Vehicle Insurance</DialogTitle>
         <DialogContent>
-          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange}  style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{ marginBottom: "10px" }} />
           <TextField
             fullWidth
             select
@@ -75,8 +74,11 @@ const VehicleInsurance = () => {
               </MenuItem>
             ))}
           </TextField>
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}} />
+          {formData.vehicle === "Others" && (
+            <TextField fullWidth label="Specify Other Vehicle" name="OtherVehicle" value={formData.OtherVehicle} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          )}
+          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{ marginBottom: "10px" }} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

@@ -19,7 +19,7 @@ const Realestate = () => {
     agreeOrCommercial: '',
     place: '',
     district: '',
-    amount:''
+    Estimated_value:''
   };
 
   const [open, setOpen] = useState(false);
@@ -77,7 +77,7 @@ const Realestate = () => {
             ))}
           </TextField>
           <TextField fullWidth label="Agree or Commercial" name="agreeOrCommercial" value={formData.agreeOrCommercial} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Budget" name="amoount" value={formData.amount} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Estimated Value" name="Estimated_value" value={formData.Estimated_value} onChange={handleChange} style={{marginBottom:"10px"}} />
 
           <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange}  style={{marginBottom:"10px"}}/>
           <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}}/>
