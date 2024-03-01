@@ -12,8 +12,8 @@ const CreditCard = () => {
     name: '',
     mobile: '',
     alternate_number: '',
-    place: '',
-    district: ''
+    Place: '',
+    District: ''
   };
 
   const [open, setOpen] = useState(false);
@@ -58,8 +58,8 @@ const CreditCard = () => {
             <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{ marginBottom: "10px" }} />
             <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{ marginBottom: "10px" }} />
             <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{ marginBottom: "10px" }} />
-            <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{ marginBottom: "10px" }} />
-            <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <TextField fullWidth label="Place" name="place" value={formData.Place} onChange={handleChange} style={{ marginBottom: "10px" }} />
+            <TextField fullWidth label="District" name="district" value={formData.District} onChange={handleChange} style={{ marginBottom: "10px" }} />
             <DialogActions>
               <Button onClick={handleClose}>Cancel</Button>
               <Button type='submit'>Submit</Button>

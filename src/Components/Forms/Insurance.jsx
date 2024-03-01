@@ -41,6 +41,7 @@ const Insurance = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(`${API_URL}/services/insurance/${referralId}`, formData);
+      console.log(response)
       toast.success('Form submitted successfully');
       handleClose(); 
       setFormData(initialFormData); 
