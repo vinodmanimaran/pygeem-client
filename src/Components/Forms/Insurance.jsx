@@ -70,7 +70,7 @@ const Insurance = () => {
             onChange={handleChange}
             style={{ marginBottom: "10px" }}
           >
-            {['Health Insurance', 'Life Insurance', 'Global Insurance', 'Others'].map((option) => (
+            {['Health Insurance', 'Life Insurance', 'General Insurance', 'Others'].map((option) => (
               <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>
