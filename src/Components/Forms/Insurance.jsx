@@ -3,10 +3,9 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, M
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Forms.css';
-import {useParams} from 'react-router-dom'
- 
+import { useParams } from 'react-router-dom';
 
-const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
+const API_URL = import.meta.env.VITE_API || "http://localhost:4040";
 
 
 const Insurance = () => {
@@ -15,8 +14,8 @@ const Insurance = () => {
     name: '',
     mobile: '',
     alternate_number: '',
-    place: '',
-    district: '',
+    Place: '',
+    District: '',
     insurance_type: ''
   };
 
@@ -41,10 +40,10 @@ const Insurance = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(`${API_URL}/services/insurance/${referralId}`, formData);
-      console.log(response)
+      console.log(response);
       toast.success('Form submitted successfully');
-      handleClose(); 
-      setFormData(initialFormData); 
+      handleClose();
+      setFormData(initialFormData);
     } catch (error) {
       console.error('Error submitting form:', error);
       toast.error('Error submitting form');
@@ -60,8 +59,8 @@ const Insurance = () => {
           <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{ marginBottom: "10px" }} />
           <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} style={{ marginBottom: "10px" }} />
           <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{ marginBottom: "10px" }} />
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange} style={{ marginBottom: "10px" }} />
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="Place" name="Place" value={formData.Place} onChange={handleChange} style={{ marginBottom: "10px" }} />
+          <TextField fullWidth label="District" name="District" value={formData.District} onChange={handleChange} style={{ marginBottom: "10px" }} />
           <TextField
             fullWidth
             select
@@ -71,7 +70,7 @@ const Insurance = () => {
             onChange={handleChange}
             style={{ marginBottom: "10px" }}
           >
-            {['Health Insurance','Life Insurance','General Insurance','Others'].map((option) => (
+            {['Health Insurance', 'Life Insurance', 'General Insurance', 'Others'].map((option) => (
               <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>

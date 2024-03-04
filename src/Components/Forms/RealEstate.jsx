@@ -6,7 +6,8 @@ import './Forms.css';
 import { useParams } from 'react-router-dom';
 
 
-const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
+const API_URL = import.meta.env.VITE_API || "http://localhost:4040";
+
 
 
 const Realestate = () => {
@@ -17,10 +18,10 @@ const Realestate = () => {
     alternate_number: '',
     purchaseOrSale: '',
     agreeOrCommercial: '',
-    place: '',
-    district: '',
+    Place: '',
+    District: '',
     Estimated_value:''
-  };
+    };
 
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
@@ -43,6 +44,7 @@ const Realestate = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(`${API_URL}/services/realestate/${referralId}`, formData);
+      console.log(response)
       toast.success('Form submitted successfully');
       handleClose(); 
       setFormData(initialFormData); 
@@ -58,15 +60,15 @@ const Realestate = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Apply for Real Estate</DialogTitle>
         <DialogContent>
-          <TextField fullWidth label="Name" name="name" value={formData.name} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange}  style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="Name" name="name" value={formData.name || ''} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Mobile" name="mobile" value={formData.mobile || ''} onChange={handleChange}  style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number || ''} onChange={handleChange} style={{marginBottom:"10px"}}/>
           <TextField
             fullWidth
             select
             label="Purchase or Sale"
             name="purchaseOrSale"
-            value={formData.purchaseOrSale}
+            value={formData.purchaseOrSale || ''}
             onChange={handleChange}
             style={{ marginBottom: "10px" }}
           >
@@ -76,11 +78,11 @@ const Realestate = () => {
               </MenuItem>
             ))}
           </TextField>
-          <TextField fullWidth label="Agree or Commercial" name="agreeOrCommercial" value={formData.agreeOrCommercial} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Estimated Value" name="Estimated_value" value={formData.Estimated_value} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Agree or Commercial" name="agreeOrCommercial" value={formData.agreeOrCommercial || ''} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Estimated Value" name="Estimated_value" value={formData.Estimated_value || ''} onChange={handleChange} style={{marginBottom:"10px"}} />
 
-          <TextField fullWidth label="Place" name="place" value={formData.place} onChange={handleChange}  style={{marginBottom:"10px"}}/>
-          <TextField fullWidth label="District" name="district" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="Place" name="Place" value={formData.Place || ''} onChange={handleChange}  style={{marginBottom:"10px"}}/>
+          <TextField fullWidth label="District" name="District" value={formData.District || ''} onChange={handleChange} style={{marginBottom:"10px"}}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

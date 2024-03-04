@@ -5,10 +5,11 @@ import axios from 'axios';
 import './Forms.css';
 import { useParams } from 'react-router-dom';
 
-const API_URL = "https://backend-api-u4m5.onrender.com" || "http://localhost:4040";
+const API_URL = import.meta.env.VITE_API || "http://localhost:4040";
+
 
 const Job = () => {
-  
+
   const { referralId } = useParams();
   const initialFormData = {
     name: '',
@@ -17,8 +18,8 @@ const Job = () => {
     Qualification: '',
     Experience: '',
     Country: '',
-    place: '',
-    district: ''
+    Place: '',
+    District: ''
   };
 
   const [open, setOpen] = useState(false);
@@ -62,9 +63,9 @@ const Job = () => {
           <TextField fullWidth label="Mobile" name="mobile"  value={formData.mobile} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Alternate Number" name="alternate_number" value={formData.alternate_number} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Qualification" name="Qualification" value={formData.Qualification} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="Place" name="Place" value={formData.place} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="Place" name="Place" value={formData.Place} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Experience" name="Experience" value={formData.Experience} onChange={handleChange} style={{marginBottom:"10px"}} />
-          <TextField fullWidth label="District" name="District" value={formData.district} onChange={handleChange} style={{marginBottom:"10px"}} />
+          <TextField fullWidth label="District" name="District" value={formData.District} onChange={handleChange} style={{marginBottom:"10px"}} />
           <TextField fullWidth label="Country" name="Country" value={formData.Country} onChange={handleChange} style={{marginBottom:"10px"}} />
         </DialogContent>
         <DialogActions>
